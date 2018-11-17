@@ -1,0 +1,14 @@
+version: '2'
+services:
+  spring-admin:
+    image: hwp/admin
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.profiles.active=dev
+  spring-api:
+    image: hwp/api
+    ports:
+      - "8081:8081"
+    environment:
+      - spring.profiles.active=dev
