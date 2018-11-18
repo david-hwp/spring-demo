@@ -81,7 +81,7 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
                         class="fa fa-bars"></i> </a>
-                    <!--<form role="search" class="navbar-form-custom" method="post" action="search_results.html">-->
+                    <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                     <div class="navbar-form-custom">
                         <div class="form-group">
                             <input type="text" placeholder="欢迎使用XXX系统…" class="form-control" name="top-search"
@@ -95,80 +95,62 @@
                             <i class="fa fa-envelope"></i> <span class="label label-warning">0</span>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
-                            <!--<li class="m-t-xs">-->
-                            <!--<div class="dropdown-messages-box">-->
-                            <!--<a href="profile.html" class="pull-left">-->
-                            <!--<img alt="image" class="img-circle" src="img/a7.jpg">-->
-                            <!--</a>-->
-                            <!--<div class="media-body">-->
-                            <!--<small class="pull-right">46小时前</small>-->
-                            <!--<strong>小四</strong> 这个在日本投降书上签字的军官，建国后一定是个不小的干部吧？-->
-                            <!--<br>-->
-                            <!--<small class="text-muted">3天前 2014.11.8</small>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="divider"></li>-->
-                            <!--<div v-for="item in messageList">-->
-                            <!--<li>-->
-                            <!--<div class="dropdown-messages-box">-->
-                            <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a4.jpg">&ndash;&gt;-->
-                            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                            <!--<div class="media-body ">-->
-                            <!--<small class="pull-right text-navy">{{item.createTime | calTimeDifference}}</small>-->
-                            <!--<strong>{{item.title}}</strong><br> {{item.content}}-->
-                            <!--<br>-->
-                            <!--<small class="text-muted">{{item.createTime}}</small>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="divider"></li>-->
-                            <!--</div>-->
-                            <!--<li>-->
-                            <!--<div class="text-center link-block">-->
-                            <!--<a @click="lookMsg($event)" data-href="application/message.html" data-index="348"-->
-                            <!--class="J_menuItem"  >-->
-                            <!--&lt;!&ndash;TODO 多次点击会出现多个选项卡&ndash;&gt;-->
-                            <!--<i class="fa fa-envelope"></i> <strong> 查看所有消息</strong>-->
-                            <!--</a>-->
-                            <!--</div>-->
-                            <!--</li>-->
+                            <li class="m-t-xs">
+                                <div class="dropdown-messages-box">
+                                    <a href="profile.html" class="pull-left">
+                                        <img alt="image" class="img-circle" src="${request.contextPath}/statics/img/a7.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <small class="pull-right">46小时前</small>
+                                        <strong>小四</strong> 这个在日本投降书上签字的军官，建国后一定是个不小的干部吧？
+                                        <br>
+                                        <small class="text-muted">3天前 2014.11.8</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="modules/sys/log.html?v=1" class="J_menuItem">
+                                        <i class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
+                                    </a>
+                                </div>
+                            </li>
                         </ul>
                     </li>
-                    <!--<li class="dropdown">-->
-                    <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">-->
-                    <!--<i class="fa fa-bell"></i> <span class="label label-primary">8</span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu dropdown-alerts">-->
-                    <!--<li>-->
-                    <!--<a href="mailbox.html">-->
-                    <!--<div>-->
-                    <!--<i class="fa fa-envelope fa-fw"></i> 您有16条未读消息-->
-                    <!--<span class="pull-right text-muted small">4分钟前</span>-->
-                    <!--</div>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li>-->
-                    <!--<a href="profile.html">-->
-                    <!--<div>-->
-                    <!--<i class="fa fa-qq fa-fw"></i> 3条新回复-->
-                    <!--<span class="pull-right text-muted small">12分钟钱</span>-->
-                    <!--</div>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li>-->
-                    <!--<div class="text-center link-block">-->
-                    <!--<a class="J_menuItem" href="notifications.html">-->
-                    <!--<strong>查看所有 </strong>-->
-                    <!--<i class="fa fa-angle-right"></i>-->
-                    <!--</a>-->
-                    <!--</div>-->
-                    <!--</li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
+                                        <span class="pull-right text-muted small">4分钟前</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-qq fa-fw"></i> 3条新回复
+                                        <span class="pull-right text-muted small">12分钟钱</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="druid/sql.html?v=1" class="J_menuItem">
+                                        <strong>查看所有 </strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题

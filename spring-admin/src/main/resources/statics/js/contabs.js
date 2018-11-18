@@ -152,8 +152,6 @@ function showMenuItem() {
     return false;
 }
 
-// $('.J_menuItem').on('click', showMenuItem);
-
 // 关闭选项卡菜单
 function closeTab() {
     var closeTabId = $(this).parents('.J_menuTab').data('id');
@@ -277,6 +275,9 @@ function refreshTab() {
 }
 
 $(function () {
+    //所有J_menuItem的a便签都可打开标签页
+    $('.J_menuItem').on('click', showMenuItem);
+
     // 滚动到已激活的选项卡
     $('.J_tabShowActive').on('click', showActiveTab);
 

@@ -16,7 +16,6 @@ $(function () {
 			}}
         ],
 		viewrecords: true,
-        height: 385,
         rowNum: 10,
 		rowList : [10,30,50],
         rownumbers: true, 

@@ -9,9 +9,8 @@ $(function () {
             {label: '创建时间', name: 'createTime', width: 100}
         ],
         viewrecords: true,
-        height: 385,
-        rowNum: 10,
-        rowList: [10, 30, 50, 100, 200],
+        rowNum: 20,
+        rowList: [10, 20, 30, 50, 100, 200],
         rownumbers: true,
         rownumWidth: 25,
         autowidth: true,
@@ -33,6 +32,7 @@ $(function () {
             $("#jqGrid").closest(".ui-jqgrid-bdiv").css({"overflow-x": "hidden"});
         }
     });
+    console.log(document.documentElement.clientHeight)
 });
 
 var vm = new Vue({

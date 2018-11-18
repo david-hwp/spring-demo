@@ -17,7 +17,7 @@
         this.parentCode = 'parentId';// 用于设置父子关系
         this.expandAll = false;// 是否默认全部展开
         this.toolbarId = tableId + "Toolbar";
-        this.height = 430;
+        // this.height = 430;
     };
 
     TreeTable.prototype = {

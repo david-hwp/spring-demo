@@ -139,7 +139,7 @@ Dept.initColumn = function () {
         {title: '部门ID', field: 'deptId', visible: false, align: 'center', valign: 'middle', width: '80px'},
         {title: '部门名称', field: 'name', align: 'center', valign: 'middle', sortable: true, width: '180px'},
         {title: '上级部门', field: 'parentName', align: 'center', valign: 'middle', sortable: true, width: '100px'},
-        {title: '排序号', field: 'orderNum', align: 'center', valign: 'middle', sortable: true, width: '100px'}]
+        {title: '排序号', field: 'orderNum', align: 'center', valign: 'middle', sortable: true, width: '100px'}];
     return columns;
 };
 

@@ -7603,29 +7603,6 @@ body.skin-3 {
     }
 }
 
-/*JQGRID*/
-
-.ui-jqgrid-titlebar {
-    height: 40px;
-    line-height: 24px;
-    color: #676a6c;
-    background-color: #F9F9F9;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.ui-jqgrid .ui-jqgrid-title {
-    float: left;
-    margin-left: 5px;
-    font-weight: 700;
-}
-
-.ui-jqgrid .ui-jqgrid-titlebar {
-    position: relative;
-    border-left: 0px solid;
-    border-right: 0px solid;
-    border-top: 0px solid;
-}
-
 /* Social feed */
 
 .social-feed-separated .social-feed-box {

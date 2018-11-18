@@ -1,7 +1,13 @@
 //jqGrid的配置信息
 $.jgrid.defaults.width = 1000;
+$.jgrid.defaults.height = document.documentElement.clientHeight - 130;//默认表格充满iframe，不需要这么高的话，增加这里的值
 $.jgrid.defaults.responsive = true;
 $.jgrid.defaults.styleUI = 'Bootstrap';
+
+//jqGrid高度自适应
+$(window).on('resize', function () {
+    $("#jqGrid").jqGrid('setGridHeight', document.documentElement.clientHeight - $('.grid-btn').height() - 110);
+}).resize();
 
 var baseURL = "../../";
 
