@@ -44,7 +44,7 @@ var vm = new Vue({
 	data:{
 		q:{
 			key: null
-		},
+		}
 	},
 	methods: {
 		query: function () {

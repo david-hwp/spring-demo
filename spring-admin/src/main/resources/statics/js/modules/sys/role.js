@@ -146,7 +146,7 @@ var vm = new Vue({
                     contentType: "application/json",
                     data: JSON.stringify(roleIds),
                     success: function(r){
-                        if(r.code == 0){
+                        if(r.code === 200){
                             alert('操作成功', function(){
                                 vm.reload();
                             });
@@ -202,7 +202,7 @@ var vm = new Vue({
                 contentType: "application/json",
                 data: JSON.stringify(vm.role),
                 success: function(r){
-                    if(r.code === 0){
+                    if(r.code === 200){
                         alert('操作成功', function(){
                             vm.reload();
                         });
