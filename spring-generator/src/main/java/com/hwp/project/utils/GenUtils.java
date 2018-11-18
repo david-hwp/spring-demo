@@ -28,25 +28,11 @@ import java.util.zip.ZipOutputStream;
  */
 public class GenUtils {
 
-    public static List<String> getTemplates() {
-        List<String> templates = new ArrayList<String>();
-        templates.add("template/Entity.java.vm");
-        templates.add("template/Dao.java.vm");
-        templates.add("template/Dao.xml.vm");
-        templates.add("template/Service.java.vm");
-        templates.add("template/ServiceImpl.java.vm");
-        templates.add("template/Controller.java.vm");
-        templates.add("template/list.html.vm");
-        templates.add("template/list.js.vm");
-        templates.add("template/menu.sql.vm");
-        return templates;
-    }
-
     /**
      * 生成代码
      */
     public static void generatorCode(Map<String, String> table,
-                                     List<Map<String, String>> columns, ZipOutputStream zip) {
+                                     List<Map<String, String>> columns, String module, ZipOutputStream zip) {
         //配置信息
         Configuration config = getConfig();
         boolean hasBigDecimal = false;
@@ -101,6 +87,8 @@ public class GenUtils {
         String mainPath = config.getString("mainPath");
         mainPath = StringUtils.isBlank(mainPath) ? "com.hwp.project" : mainPath;
 
+        String moduleName = module.isEmpty() ? config.getString("moduleName") : module;
+
         //封装模板数据
         Map<String, Object> map = new HashMap<>();
         map.put("tableName", tableEntity.getTableName());
@@ -113,7 +101,7 @@ public class GenUtils {
         map.put("hasBigDecimal", hasBigDecimal);
         map.put("mainPath", mainPath);
         map.put("package", config.getString("package"));
-        map.put("moduleName", config.getString("moduleName"));
+        map.put("moduleName", moduleName);
         map.put("author", config.getString("author"));
         map.put("email", config.getString("email"));
         map.put("datetime", DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
@@ -129,7 +117,7 @@ public class GenUtils {
 
             try {
                 //添加到zip
-                zip.putNextEntry(new ZipEntry(getFileName(template, tableEntity.getClassName(), config.getString("package"), config.getString("moduleName"))));
+                zip.putNextEntry(new ZipEntry(getFileName(template, tableEntity.getClassName(), config.getString("package"), moduleName)));
                 IOUtils.write(sw.toString(), zip, "UTF-8");
                 IOUtils.closeQuietly(sw);
                 zip.closeEntry();
@@ -139,18 +127,31 @@ public class GenUtils {
         }
     }
 
+    private static List<String> getTemplates() {
+        List<String> templates = new ArrayList<>();
+        templates.add("template/Entity.java.vm");
+        templates.add("template/Dao.java.vm");
+        templates.add("template/Dao.xml.vm");
+        templates.add("template/Service.java.vm");
+        templates.add("template/ServiceImpl.java.vm");
+        templates.add("template/Controller.java.vm");
+        templates.add("template/list.html.vm");
+        templates.add("template/list.js.vm");
+        templates.add("template/menu.sql.vm");
+        return templates;
+    }
 
     /**
      * 列名转换成Java属性名
      */
-    public static String columnToJava(String columnName) {
+    private static String columnToJava(String columnName) {
         return WordUtils.capitalizeFully(columnName, new char[]{'_'}).replace("_", "");
     }
 
     /**
      * 表名转换成Java类名
      */
-    public static String tableToJava(String tableName, String tablePrefix) {
+    private static String tableToJava(String tableName, String tablePrefix) {
         if (StringUtils.isNotBlank(tablePrefix)) {
             tableName = tableName.replace(tablePrefix, "");
         }
@@ -160,7 +161,7 @@ public class GenUtils {
     /**
      * 获取配置信息
      */
-    public static Configuration getConfig() {
+    private static Configuration getConfig() {
         try {
             return new PropertiesConfiguration("generator.properties");
         } catch (ConfigurationException e) {
@@ -171,7 +172,7 @@ public class GenUtils {
     /**
      * 获取文件名
      */
-    public static String getFileName(String template, String className, String packageName, String moduleName) {
+    private static String getFileName(String template, String className, String packageName, String moduleName) {
         String packagePath = "main" + File.separator + "java" + File.separator;
         if (StringUtils.isNotBlank(packageName)) {
             packagePath += packageName.replace(".", File.separator) + File.separator + moduleName + File.separator;
